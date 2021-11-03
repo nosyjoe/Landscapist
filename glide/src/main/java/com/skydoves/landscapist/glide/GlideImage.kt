@@ -89,7 +89,7 @@ import kotlinx.coroutines.flow.callbackFlow
 public fun GlideImage(
   imageModel: Any?,
   modifier: Modifier = Modifier,
-  requestBuilder: RequestBuilder<Drawable> = LocalGlideProvider.getGlideRequestBuilder(imageModel),
+  requestBuilder: @Composable () -> RequestBuilder<Drawable> = { LocalGlideProvider.getGlideRequestBuilder(imageModel) },
   requestOptions: RequestOptions = LocalGlideProvider.getGlideRequestOptions(),
   alignment: Alignment = Alignment.Center,
   contentScale: ContentScale = ContentScale.Crop,
@@ -185,7 +185,7 @@ public fun GlideImage(
 public fun GlideImage(
   imageModel: Any,
   modifier: Modifier = Modifier,
-  requestBuilder: RequestBuilder<Drawable> = LocalGlideProvider.getGlideRequestBuilder(imageModel),
+  requestBuilder: @Composable () -> RequestBuilder<Drawable> = { LocalGlideProvider.getGlideRequestBuilder(imageModel) },
   requestOptions: RequestOptions = LocalGlideProvider.getGlideRequestOptions(),
   alignment: Alignment = Alignment.Center,
   contentScale: ContentScale = ContentScale.Crop,
@@ -271,7 +271,7 @@ public fun GlideImage(
 public fun GlideImage(
   imageModel: Any,
   modifier: Modifier = Modifier,
-  requestBuilder: RequestBuilder<Drawable> = LocalGlideProvider.getGlideRequestBuilder(imageModel),
+  requestBuilder: @Composable () -> RequestBuilder<Drawable> = { LocalGlideProvider.getGlideRequestBuilder(imageModel) },
   requestOptions: RequestOptions = LocalGlideProvider.getGlideRequestOptions(),
   alignment: Alignment = Alignment.Center,
   contentScale: ContentScale = ContentScale.Crop,
@@ -300,7 +300,7 @@ public fun GlideImage(
 
   GlideImage(
     recomposeKey = imageModel,
-    builder = requestBuilder
+    builder = requestBuilder()
       .apply(requestOptions)
       .load(imageModel),
     bitmapPalette = bitmapPalette,
@@ -395,7 +395,7 @@ public fun GlideImage(
 public fun GlideImage(
   imageModel: Any?,
   modifier: Modifier = Modifier,
-  requestBuilder: RequestBuilder<Drawable> = LocalGlideProvider.getGlideRequestBuilder(imageModel),
+  requestBuilder: @Composable () -> RequestBuilder<Drawable> = { LocalGlideProvider.getGlideRequestBuilder(imageModel) },
   requestOptions: RequestOptions = LocalGlideProvider.getGlideRequestOptions(),
   alignment: Alignment = Alignment.Center,
   contentScale: ContentScale = ContentScale.Crop,
@@ -424,7 +424,7 @@ public fun GlideImage(
 
   GlideImage(
     recomposeKey = imageModel,
-    builder = requestBuilder
+    builder = requestBuilder()
       .apply(requestOptions)
       .load(imageModel),
     modifier = modifier.fillMaxWidth(),
